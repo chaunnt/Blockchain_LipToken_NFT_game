@@ -8,8 +8,6 @@ COPY ./package.json /usr/src/app/
 RUN npm install && npm cache clean --force
 COPY ./ /usr/src/app
 
-RUN ./node_modules/.bin/truffle migrate --reset
-
 ENV PORT 80
 EXPOSE 80
 CMD [ "npm", "start" ]

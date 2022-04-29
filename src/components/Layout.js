@@ -6,10 +6,9 @@ const _color = window.origin + "/images/bg/_color.png"
 
 export default function Layout({ Component, setGlobalRoute, ...rest }) {
   const blockchain = useSelector(state => state.blockchain)
-  
   function renderAccount(text) {
     if (!text) return "0x0"
-    return text.slice(0, 4) + "..." + text.slice(text.length - 5, text.length - 1)
+    return text.slice(0, 4) + "..." + text.slice(text.length - 4, text.length)
   }
 
   return (
