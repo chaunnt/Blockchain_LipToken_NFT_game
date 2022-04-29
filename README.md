@@ -1,4 +1,4 @@
-# Lip Toen
+# Lip Token
 
 ## How to run
 - 1. `./node_modules/.bin/truffle migrate --reset`

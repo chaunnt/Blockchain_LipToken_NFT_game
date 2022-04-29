@@ -40,9 +40,8 @@ export const handleConnect = () => {
         const networkId = await window.ethereum.request({
           method: "net_version"
         })
-        const lipTokenNetworkData = await LipToken.networks[networkId]
-        if (lipTokenNetworkData) {
-          const lipToken = new web3.eth.Contract(LipToken.abi, lipTokenNetworkData.address)
+        if (networkId === '97') { // BSC Testnet
+          const lipToken = new web3.eth.Contract(LipToken.abi, "0x656e3C041eD8A85278C8E8B4ccCC457B19D1214a")
           dispatch(connectSuccess({
             account: accounts[0],
             lipToken: lipToken,
@@ -55,7 +54,7 @@ export const handleConnect = () => {
           })
         } else {
           // add listeners end
-          dispatch(connectFailed("Change network to ETH."))
+          dispatch(connectFailed("Change network to BSC Testnet."))
         }
       } catch (error) {
         dispatch(connectFailed('Non-Ethereum browser detected. You should consider trying MetaMask!'))
